@@ -1,0 +1,9 @@
+# ide files
+*.sublime-project
+*.sublime-workspace
+
+# Compiled 
+dist
+
+# Dependency directory
+node_modules
