@@ -16,6 +16,7 @@ var config = {
 	paths: {
 		html: './src/*.html',
 		js: './src/**/*.js',
+		images: './src/images/*',
 		css: [
 			'node_modules/bootstrap/dist/css/bootstrap.min.css',
 			'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
@@ -71,6 +72,18 @@ gulp.task('css', function(){
 		.pipe(connect.reload());
 });
 
+// copy images to the dist folder
+gulp.task('images', function(){
+	gulp.src(config.paths.images)
+		.pipe(gulp.dest(config.paths.dist + '/images'))
+		.pipe(connect.reload());
+	
+	// publish favicon
+	gulp.src('./src/favicon.ico')
+		.pipe(gulp.dest(config.paths.dist));
+
+});
+
 // use gulp-eslint to warn about javascript boo-boos
 // specify the rules that you want the linter to follow
 // in a json file
@@ -88,4 +101,4 @@ gulp.task('watch', function() {
 });
 
 // default task to encapsulate everything
-gulp.task('default', ['html', 'js', 'css', 'lint', 'open', 'watch']);
+gulp.task('default', ['html', 'js', 'css', 'images', 'lint', 'open', 'watch']);
