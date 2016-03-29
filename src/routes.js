@@ -7,11 +7,11 @@ var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 
 var routes = (
-<Route name="app" path="/" handler={require('./components/app')}>
-	<DefaultRoute handler={require('./components/homePage')}>
-	<Route name="authors" handler={require('./components/authors/authorPage')}>
-	<Route name="about" handler={require('./components/about/aboutPage')}>
-</Route>
+	<Route name="app" path="/" handler={require('./components/app')}>
+		<DefaultRoute handler={require('./components/homePage')}></DefaultRoute>
+		<Route name="authors" handler={require('./components/authors/authors')}></Route>
+		<Route name="about" handler={require('./components/about/aboutPage')}></Route>
+	</Route>
 );
 
 module.exports = routes;
